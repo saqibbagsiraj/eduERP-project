@@ -9,4 +9,6 @@ public interface FacultyService {
     Faculty saveFaculty(Faculty faculty);
 
     List<Faculty> getAllFaculty();
+
+    Faculty getFacultyById(Long id);
 }

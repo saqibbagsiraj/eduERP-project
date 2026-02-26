@@ -5,6 +5,7 @@ import com.eduerp.repository.CourseRepository;
 import com.eduerp.service.CourseService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -17,6 +18,12 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Course saveCourse(Course course) {
+        course.setCreatedAt(LocalDateTime.now());
+        return courseRepository.save(course);
+    }
+
+    @Override
     public List<Course> getAllCourses() {
         return courseRepository.findAll();
     }
@@ -24,6 +31,6 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Course getCourseById(Long id) {
         return courseRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Course not found"));
+                .orElseThrow(() -> new RuntimeException("Course not found with id: " + id));
     }
 }

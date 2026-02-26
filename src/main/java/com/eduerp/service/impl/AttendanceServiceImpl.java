@@ -18,4 +18,4 @@ public class AttendanceServiceImpl implements AttendanceService {
     public Attendance markAttendance(Attendance attendance) {
         return attendanceRepository.save(attendance);
     }
-}
+} 

@@ -25,4 +25,11 @@ public class FacultyServiceImpl implements FacultyService {
     public List<Faculty> getAllFaculty() {
         return facultyRepository.findAll();
     }
+
+    // 🔥 THIS METHOD WAS MISSING
+    @Override
+    public Faculty getFacultyById(Long id) {
+        return facultyRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Faculty not found with id: " + id));
+    }
 }
