@@ -34,6 +34,7 @@ class StudentServiceImplTest {
 
         assertEquals(student, savedStudent);
         verify(studentRepository).save(student);
+        System.out.println("Student saved successfully");
     }
 
     @Test
@@ -48,6 +49,7 @@ class StudentServiceImplTest {
 
         assertEquals(students, result);
         verify(studentRepository).findAll();
+        System.out.println("List of students retrieved successfully");
     }
 
     @Test
@@ -59,6 +61,7 @@ class StudentServiceImplTest {
 
         assertEquals(student, result);
         verify(studentRepository).findById(10L);
+        System.out.println("Student found successfully");
     }
 
     @Test

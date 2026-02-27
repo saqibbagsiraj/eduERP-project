@@ -37,6 +37,7 @@ class CourseServiceImplTest {
 
         assertEquals(courses, result);
         verify(courseRepository).findAll();
+        System.out.println("Courses retrieved successfully");
     }
 
     @Test
@@ -48,6 +49,7 @@ class CourseServiceImplTest {
 
         assertEquals(course, result);
         verify(courseRepository).findById(5L);
+        System.out.println("Course found successfully");
     }
 
     @Test
@@ -58,5 +60,6 @@ class CourseServiceImplTest {
 
         assertEquals("Course not found", exception.getMessage());
         verify(courseRepository).findById(77L);
+
     }
 }

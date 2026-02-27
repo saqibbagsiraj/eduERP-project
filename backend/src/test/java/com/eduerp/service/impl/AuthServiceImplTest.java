@@ -39,7 +39,7 @@ class AuthServiceImplTest {
 
     @Test
     void loginReturnsEmptyWhenEmailNotFound() {
-        String email = "missing@example.com";
+        String email = "shashank@gmail.com";
         when(userRepository.findByEmail(email)).thenReturn(Optional.empty());
 
         Optional<User> result = authService.login(email);
