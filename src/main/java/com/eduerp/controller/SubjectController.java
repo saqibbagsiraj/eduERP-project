@@ -15,7 +15,6 @@ public class SubjectController {
     public SubjectController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
-
     @PostMapping
     public Subject createSubject(@RequestBody Subject subject) {
         return subjectService.saveSubject(subject);
