@@ -1,5 +1,6 @@
 package com.eduerp.controller;
 
+import com.eduerp.dto.request.LoginRequest;
 import com.eduerp.entity.User;
 import com.eduerp.service.AuthService;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,9 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @GetMapping("/login")
-    public User login(@RequestParam String email) {
-        return authService.login(email)
+    @PostMapping("/login")
+    public User login(@RequestBody LoginRequest request) {
+        return authService.login(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 }
