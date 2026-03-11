@@ -9,6 +9,10 @@ const ProtectedRoute = ({ allowedRoles }) => {
   const { role } = useSelector((state) => state.auth);
   const token = localStorage.getItem("token");
 
+
+  console.log("Role from redux:", role);
+  console.log("Allowed roles:", allowedRoles);
+
   
   // logs for debugging
   // console.log("Role from redux:", role);
@@ -33,7 +37,7 @@ const ProtectedRoute = ({ allowedRoles }) => {
     );
   }
 
-  if (role === "FACULTY") {
+  if (role === "ADMIN") {
     return (
       <FacultyLayout>
         <Outlet />
@@ -41,7 +45,7 @@ const ProtectedRoute = ({ allowedRoles }) => {
     );
   }
 
-  if (role === "STUDENT") {
+  if (role === "ADMIN") {
     return (
       <StudentLayout>
         <Outlet />
